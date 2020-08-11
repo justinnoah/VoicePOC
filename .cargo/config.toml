@@ -1,0 +1,3 @@
+[target.*.deepspeech]
+rustc-link-lib = ["deepspeech"]
+rustc-link-search = ["<libdeepspeech folder>"]

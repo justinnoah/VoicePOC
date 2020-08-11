@@ -1,0 +1,16 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "realEdit"
+version = "0.1.0"
+authors = ["Justin Noah <justinnoah@gmail.com>"]
+edition = "2018"
+links = "deepspeech"
+
+
+[dependencies]
+audrey = "*"
+clap = "*"
+deepspeech = "0.7"
+sdl2 = { version = "0.34", features = [], path = "../rust-sdl2" }
+serde = "1"
