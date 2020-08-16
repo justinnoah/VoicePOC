@@ -81,6 +81,7 @@ fn main() {
 
     // Thread unsafe way of doing things
     let mut m = Model::load_from_files(&Path::new("./deepspeech.pbmm")).unwrap();
+    m.enable_external_scorer(&Path::new("./deepspeech.scorer"));
     let _mic: AudioQueue<_> = asys.open_queue(
         None,
         true, // new parameter, iscapture
