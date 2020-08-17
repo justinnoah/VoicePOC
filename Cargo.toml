@@ -6,6 +6,7 @@ version = "0.1.0"
 authors = ["Justin Noah <justinnoah@gmail.com>"]
 edition = "2018"
 links = "deepspeech"
+license = "./LICENSE"
 
 
 [dependencies]

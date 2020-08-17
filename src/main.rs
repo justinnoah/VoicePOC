@@ -99,7 +99,7 @@ fn main() {
     // to display the words heard.
     let f_ctx = ttf::init().unwrap();
     let font = f_ctx.load_font(
-        &Path::new(""), 72).unwrap();
+        &Path::new("fonts/Digitalt-04no.ttf"), 72).unwrap();
     let (x, y) = canvas.window().size();
     let font_color = Color::RGB(255, 255, 255);
 
