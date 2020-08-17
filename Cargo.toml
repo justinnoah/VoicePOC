@@ -12,5 +12,5 @@ links = "deepspeech"
 audrey = "*"
 clap = "*"
 deepspeech = "0.7"
-sdl2 = { version = "0.34", features = [], path = "../rust-sdl2" }
+sdl2 = { version = "0.34", features = ["ttf"], path = "../rust-sdl2" }
 serde = "1"

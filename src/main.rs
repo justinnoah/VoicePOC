@@ -7,7 +7,11 @@ use sdl2 as sdl;
 use sdl::audio::{AudioQueue, AudioSpecDesired};
 use sdl::event::Event;
 use sdl::keyboard::Keycode;
-use sdl::pixels::Color;
+use sdl::pixels::{Color, PixelFormatEnum};
+use sdl::rect::Rect;
+use sdl::render::Texture;
+use sdl::surface::Surface;
+use sdl::ttf;
 
 const VERSION: &'static str = "0.0.0";
 
@@ -91,6 +95,14 @@ fn main() {
         false,
         &ASPEC_DESIRED).unwrap();
 
+    // Create a TTF Context and use the open window
+    // to display the words heard.
+    let f_ctx = ttf::init().unwrap();
+    let font = f_ctx.load_font(
+        &Path::new(""), 72).unwrap();
+    let (x, y) = canvas.window().size();
+    let font_color = Color::RGB(255, 255, 255);
+
     // are we recording?
     let mut recording: bool = false;
     let mut event_pump = ctx.event_pump().unwrap();
@@ -114,11 +126,22 @@ fn main() {
                     match recording {
                         true => {
                             recording = false;
+                            canvas.clear();
                             _mic.pause();
 
                             let detected_words = m.speech_to_text(
                                 _mic.dequeue(_mic.size()).1.as_slice()
                             ).unwrap();
+
+                            let rect_size = font.size_of(&detected_words).unwrap();
+                            let wordsSurface = font.render(&detected_words)
+                                                   .blended_wrapped(font_color, x)
+                                                   .unwrap();
+                            let texture_creator = canvas.texture_creator();
+                            let texture = texture_creator.create_texture_from_surface(wordsSurface).unwrap();
+                            canvas.copy(&texture, None, Some(Rect::new(0, 0, rect_size.0, rect_size.1))).unwrap();
+                            canvas.present();
+
                             println!("Did you say?: {}", detected_words);
                         },
                         _ => {
@@ -131,6 +154,7 @@ fn main() {
                 _ => (),
             }
         }
+        canvas.present();
         // 60Hz
         std::thread::sleep(Duration::new(0, 1_000_000_000u32 / 60));
     }
