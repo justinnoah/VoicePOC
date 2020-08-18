@@ -21,6 +21,7 @@ provide a data stream as raw wave i16s for DeepSpeech 0.7.4.
 - Download the deepspeech model as [deepspeech.pbmm](https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.pbmm) and the scorer as [deepspeech.scorer](https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.scorer). and place  them in the top level of the checkout, e.g. /path/to/cloned/repo/.
 
 #### To use
+- Update .cargo/config.toml for your target
 - > cargo run
 - spacebar
 - say something
@@ -45,3 +46,4 @@ provide a data stream as raw wave i16s for DeepSpeech 0.7.4.
   - MacOSX
   - Windows
   - iOS (maybe)
+- More to come...

@@ -13,5 +13,6 @@ license = "./LICENSE"
 audrey = "*"
 clap = "*"
 deepspeech = "0.7"
-sdl2 = { version = "0.34", features = ["ttf"], path = "../rust-sdl2" }
+# For the time being. Patches will be submitted upstream once cleaned up
+sdl2 = { version = "0.34", features = ["ttf"], git = "https://github.com/justinnoah/rust-sdl2" }
 serde = "1"
