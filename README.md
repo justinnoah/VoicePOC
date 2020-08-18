@@ -13,7 +13,7 @@ provide a data stream as raw wave i16s for DeepSpeech 0.7.4.
 #### To build
 - Rust stable
 - DeepSpeech Library in your path
- - I used `pip install --user deepspeech==0.7.4` then added 
+  - I used `pip install --user deepspeech==0.7.4` then added 
    `~/.local/lib/python3.8/site-packages/deepspeech/lib` to my `LD_LIBRARY_PATH`,
    which is needed for linking
 - SDL2 and SDL2_ttf are needed in the library path as well, usually provided
@@ -21,27 +21,27 @@ provide a data stream as raw wave i16s for DeepSpeech 0.7.4.
 - Download the deepspeech model as [deepspeech.pbmm](https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.pbmm) and the scorer as [deepspeech.scorer](https://github.com/mozilla/DeepSpeech/releases/download/v0.7.4/deepspeech-0.7.4-models.scorer). and place  them in the top level of the checkout, e.g. /path/to/cloned/repo/.
 
 #### To use
-> cargo run
-> spacebar
-> say something
-> spacebar
+- > cargo run
+- spacebar
+- say something
+- spacebar
 - See what DeepSpeech heard
 - Escape key to exit
 
 ### Roadmap, In order from top -> bottom
 - Move to DeepSpeech 0.8.x
 - Code re-org
- - Need to get most everything out of main().
+  - Need to get most everything out of main().
 - Streaming audio instead of listen then interpret.
 - VAD: Trigger words for listening instead of spacebar
 - Settings
- - Font
- - Color/Style
- - Size
+  - Font
+  - Color/Style
+  - Size
 - Availability, produce binaries for:
- - Android
- - MacOSX
- - Linux
- - *BSD
- - Windows (lowest priority)
- - iOS (maybe)
+  - Android
+  - Linux
+  - *BSD
+  - MacOSX
+  - Windows
+  - iOS (maybe)
