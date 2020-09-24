@@ -1,17 +1,17 @@
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [package]
-name = "realEdit"
+name = "voice_poc"
 version = "0.1.0"
 authors = ["Justin Noah <justinnoah@gmail.com>"]
 edition = "2018"
 links = "deepspeech"
 license = "./LICENSE"
 
-
 [dependencies]
-audrey = "*"
-clap = "*"
+audrey = "0.2"
+axiom = "0.2"
+clap = "2.33"
 deepspeech = "0.7"
 # For the time being. Patches will be submitted upstream once cleaned up
 sdl2 = { version = "0.34", features = ["ttf"], git = "https://github.com/justinnoah/rust-sdl2" }
